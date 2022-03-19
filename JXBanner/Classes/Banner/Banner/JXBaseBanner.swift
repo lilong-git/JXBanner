@@ -127,6 +127,8 @@ public class JXBaseBanner: UIView {
     var lastCenterIndex: Int?
     var lastIndexPathCell: UICollectionViewCell?
     
+    var scrollPosition: UICollectionView.ScrollPosition = .centeredHorizontally
+    
     var cellRegister: JXBannerCellRegister = JXBannerCellRegister(type: nil,
                                                                   reuseIdentifier: "JXBannerCell")
     func setCurrentIndex(){}
@@ -193,7 +195,7 @@ extension JXBaseBanner {
         if params.isPagingEnabled {
             
             // reuse scrollToItem: to mask the bug of inaccurate scroll position
-            var scrollPosition: UICollectionView.ScrollPosition = .centeredHorizontally
+            
             if layout.params?.scrollDirection == .vertical {
                 scrollPosition = .centeredVertically
             }
