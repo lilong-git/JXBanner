@@ -127,7 +127,7 @@ public class JXBaseBanner: UIView {
     var lastCenterIndex: Int?
     var lastIndexPathCell: UICollectionViewCell?
     
-    var scrollPosition: UICollectionView.ScrollPosition = .centeredHorizontally
+    public var scrollPosition: UICollectionView.ScrollPosition = .centeredHorizontally
     
     var cellRegister: JXBannerCellRegister = JXBannerCellRegister(type: nil,
                                                                   reuseIdentifier: "JXBannerCell")
