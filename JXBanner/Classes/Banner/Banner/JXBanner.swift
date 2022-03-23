@@ -70,6 +70,19 @@ public class JXBanner: JXBaseBanner, JXBannerType {
         }
         
     }
+    
+    public func forwardScrollToIndex(_ index: Int, animated: Bool) {
+        if params.cycleWay != .forward { return }
+      
+        let currentPage = indexOfIndexPath(currentIndexPath)
+        
+        let offset = index - currentPage
+   
+        currentIndexPath = currentIndexPath + offset
+        pause()
+        scrollToIndexPath(currentIndexPath, animated: animated)
+        resume()
+    }
 
     /// The refresh UI, get data from
     public func reloadView() {
