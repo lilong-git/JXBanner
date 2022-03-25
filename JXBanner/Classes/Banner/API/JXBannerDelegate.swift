@@ -20,6 +20,10 @@ public protocol JXBannerDelegate: class {
     func jxBanner(_ banner: JXBannerType,
                       didSelectItemAt index: Int)
     
+    
+    func jxBanner(_ banner: JXBannerType,
+                      didSelectIndexPathAt indexPath: IndexPath)
+    
     /**
      Returns the index of the item in the middle of the bannerview
      
@@ -30,6 +34,10 @@ public protocol JXBannerDelegate: class {
     
     func jxBanner(_ banner: JXBannerType,
                   center index: Int)
+    
+    
+    func jxBanner(_ banner: JXBannerType,
+                  centerIndexPath index: IndexPath)
     
     /**
      This is a view to add mask subview
@@ -56,4 +64,10 @@ public extension JXBannerDelegate {
     
     func jxBanner(_ banner: JXBannerType,
                   coverView: UIView) {}
+    
+    func jxBanner(_ banner: JXBannerType,
+                  didSelectIndexPathAt indexPath: IndexPath) {}
+    
+    func jxBanner(_ banner: JXBannerType,
+                  centerIndexPath index: IndexPath) {}
 }

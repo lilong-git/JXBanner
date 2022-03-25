@@ -41,6 +41,7 @@ public class JXBanner: JXBaseBanner, JXBannerType {
         let currentPage = indexOfIndexPath(currentIndexPath)
         pageControl?.currentPage = currentPage
         delegate?.jxBanner(self, center: currentPage)
+        delegate?.jxBanner(self, centerIndexPath: currentIndexPath)
 
         if let cell = collectionView.cellForItem(at: currentIndexPath) {
             dataSource?.jxBanner(self,
@@ -49,6 +50,7 @@ public class JXBanner: JXBaseBanner, JXBannerType {
             dataSource?.jxBanner(self,
                                  centerIndex: currentPage,
                                  centerCell: cell)
+            dataSource?.jxBanner(self, centerIndexPath: currentIndexPath, centerCell: cell)
             lastCenterIndex = currentPage
             lastIndexPathCell = cell
         }
@@ -70,17 +72,11 @@ public class JXBanner: JXBaseBanner, JXBannerType {
         }
         
     }
-    
-    public func forwardScrollToIndex(_ index: Int, animated: Bool) {
+
+    public func forwardScrollToIndexPath(_ index: Int, animated: Bool = true) {
         if params.cycleWay != .forward { return }
-      
-        let currentPage = indexOfIndexPath(currentIndexPath)
-        
-        let offset = index - currentPage
-   
-        currentIndexPath = currentIndexPath + offset
         pause()
-        scrollToIndexPath(currentIndexPath, animated: animated)
+        scrollToIndexPath(IndexPath(item: index, section: 0), animated: animated)
         resume()
     }
 
@@ -414,8 +410,8 @@ UICollectionViewDelegate {
     
     public func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
-        delegate?.jxBanner(self,
-                           didSelectItemAt: indexOfIndexPath(indexPath))
+        delegate?.jxBanner(self, didSelectItemAt: indexOfIndexPath(indexPath))
+        delegate?.jxBanner(self, didSelectIndexPathAt: indexPath)
         indexPathErrorDetection()
     }
     

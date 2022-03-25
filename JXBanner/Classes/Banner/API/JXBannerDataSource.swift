@@ -105,6 +105,11 @@ public protocol JXBannerDataSource: class {
                   centerCell: UICollectionViewCell)
     
     
+    
+    func jxBanner(_ banner: JXBannerType,
+                  centerIndexPath: IndexPath,
+                  centerCell: UICollectionViewCell)
+    
     /**
      Returns the lastCenterIndex/lastCenterCell of the item in the middle of the bannerview
      
@@ -164,5 +169,10 @@ public extension JXBannerDataSource {
     func jxBanner(_ banner: JXBannerType,
                   lastCenterIndex: Int?,
                   lastCenterCell: UICollectionViewCell?) {}
+    
+    
+    func jxBanner(_ banner: JXBannerType,
+                  centerIndexPath: IndexPath,
+                  centerCell: UICollectionViewCell) {}
     
 }
