@@ -125,6 +125,7 @@ public class JXBaseBanner: UIView {
     
     // Last indexPath/cell of the middle item in bannerview
     var lastCenterIndex: Int?
+    var lastCenterIndexPath: IndexPath?
     var lastIndexPathCell: UICollectionViewCell?
     
     public var scrollPosition: UICollectionView.ScrollPosition = .centeredHorizontally
@@ -202,9 +203,11 @@ extension JXBaseBanner {
             collectionView.scrollToItem(at: indexPath,
                                         at: scrollPosition,
                                         animated: animated)
-            collectionView.scrollToItem(at: indexPath,
-                                        at: scrollPosition,
-                                        animated: animated)
+//            collectionView.scrollToItem(at: indexPath,
+//                                        at: scrollPosition,
+//                                        animated: animated)
+            
+            
         }
     }
     

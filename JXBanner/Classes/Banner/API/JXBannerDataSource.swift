@@ -122,6 +122,10 @@ public protocol JXBannerDataSource: class {
     func jxBanner(_ banner: JXBannerType,
                   lastCenterIndex: Int?,
                   lastCenterCell: UICollectionViewCell?)
+    
+    func jxBanner(_ banner: JXBannerType,
+                  lastCenterIndexPath: IndexPath?,
+                  lastCenterCell: UICollectionViewCell?)
 }
 
 /// The default implementation
@@ -174,5 +178,9 @@ public extension JXBannerDataSource {
     func jxBanner(_ banner: JXBannerType,
                   centerIndexPath: IndexPath,
                   centerCell: UICollectionViewCell) {}
+    
+    func jxBanner(_ banner: JXBannerType,
+                  lastCenterIndexPath: IndexPath?,
+                  lastCenterCell: UICollectionViewCell?) {}
     
 }
